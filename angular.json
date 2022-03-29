@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "tdcc-emeeting-monitor": "apps/tdcc-emeeting-monitor",
+    "tdcc-emeeting-monitor-e2e": "apps/tdcc-emeeting-monitor-e2e"
+  }
+}

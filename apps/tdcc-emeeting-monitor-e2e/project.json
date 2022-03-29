@@ -1,0 +1,28 @@
+{
+  "root": "apps/tdcc-emeeting-monitor-e2e",
+  "sourceRoot": "apps/tdcc-emeeting-monitor-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/tdcc-emeeting-monitor-e2e/cypress.json",
+        "devServerTarget": "tdcc-emeeting-monitor:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "tdcc-emeeting-monitor:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/tdcc-emeeting-monitor-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["tdcc-emeeting-monitor"]
+}
