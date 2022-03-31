@@ -10,7 +10,7 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/tdcc-emeeting-monitor",
+        "outputPath": "dist",
         "index": "apps/tdcc-emeeting-monitor/src/index.html",
         "main": "apps/tdcc-emeeting-monitor/src/main.ts",
         "polyfills": "apps/tdcc-emeeting-monitor/src/polyfills.ts",
@@ -98,7 +98,9 @@
     "deploy": {
       "executor": "angular-cli-ghpages:deploy",
       "options": {
-        "cname": "shang-ting.github.io"
+        "cname": "shang-ting.github.io",
+        "name": "SHANG-TING",
+        "email": "rebom8888@gmail.com"
       }
     }
   },
