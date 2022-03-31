@@ -94,6 +94,9 @@
         "jestConfig": "apps/tdcc-emeeting-monitor/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "angular-cli-ghpages:deploy"
     }
   },
   "tags": []
