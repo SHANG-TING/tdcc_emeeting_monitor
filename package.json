@@ -8,7 +8,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "ng deploy --base-href=/tdcc_emeeting_monitor/"
   },
   "private": true,
   "dependencies": {
