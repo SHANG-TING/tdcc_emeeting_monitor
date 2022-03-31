@@ -96,7 +96,10 @@
       }
     },
     "deploy": {
-      "executor": "angular-cli-ghpages:deploy"
+      "executor": "angular-cli-ghpages:deploy",
+      "options": {
+        "cname": "shang-ting.github.io"
+      }
     }
   },
   "tags": []
