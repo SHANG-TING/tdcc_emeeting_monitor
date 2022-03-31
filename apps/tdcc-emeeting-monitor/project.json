@@ -2,11 +2,13 @@
   "projectType": "application",
   "root": "apps/tdcc-emeeting-monitor",
   "sourceRoot": "apps/tdcc-emeeting-monitor/src",
-  "prefix": "tdcc-emeeting-monitor",
+  "prefix": "tem",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/tdcc-emeeting-monitor",
         "index": "apps/tdcc-emeeting-monitor/src/index.html",
@@ -18,7 +20,9 @@
           "apps/tdcc-emeeting-monitor/src/favicon.ico",
           "apps/tdcc-emeeting-monitor/src/assets"
         ],
-        "styles": ["apps/tdcc-emeeting-monitor/src/styles.scss"],
+        "styles": [
+          "apps/tdcc-emeeting-monitor/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +87,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/tdcc-emeeting-monitor"],
+      "outputs": [
+        "coverage/apps/tdcc-emeeting-monitor"
+      ],
       "options": {
         "jestConfig": "apps/tdcc-emeeting-monitor/jest.config.js",
         "passWithNoTests": true

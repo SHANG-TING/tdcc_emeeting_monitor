@@ -1,0 +1,41 @@
+<div class="grid grid-cols-12 gap-6 mb-6">
+  <div
+    *ngFor="let serviceName of ['eMeeting', 'eVoting', 'YouTube', 'Facebook']"
+    class="col-span-12 sm:col-span-6 xl:col-span-3"
+  >
+    <div
+      class="md:rounded border bg-emerald-600 border-gray-100 dark:border-gray-900 mx-6 md:mx-0 rounded"
+    >
+      <div class="flex items-center gap-6 p-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-white !w-16 !h-16">
+          <path
+            d="M19.944,2.642,12,.009,4.056,2.642A3,3,0,0,0,2,5.49V12c0,7.524,9.2,11.679,9.594,11.852l.354.157.368-.122C12.712,23.755,22,20.577,22,12V5.49A3,3,0,0,0,19.944,2.642Zm-7.5,11.347a1.873,1.873,0,0,1-1.335.553h-.033a1.872,1.872,0,0,1-1.345-.6l-2.306-2.4L8.868,10.16,11.112,12.5l5.181-5.181,1.414,1.414Z"
+          />
+        </svg>
+        <span class="text-white text-[2rem] font-bold">{{ serviceName }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
+  <div class="bg-white border border-gray-100 dark:bg-gray-900/70 dark:border-gray-900 md:rounded">
+    <tem-source-analysis-chart
+      class="block h-auto md:lg-[500px] xl:h-[600px]"
+    ></tem-source-analysis-chart>
+  </div>
+  <div class="bg-white border border-gray-100 dark:bg-gray-900/70 dark:border-gray-900 md:rounded">
+    <tem-local-distribution-chart
+      class="block h-auto md:lg-[500px] xl:h-[600px]"
+    ></tem-local-distribution-chart>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
+  <div class="bg-white border border-gray-100 dark:bg-gray-900/70 dark:border-gray-900 md:rounded">
+    <tem-event-chart class="block h-auto md:lg-[500px] xl:h-[600px]"></tem-event-chart>
+  </div>
+  <div class="bg-white border border-gray-100 dark:bg-gray-900/70 dark:border-gray-900 md:rounded">
+    <tem-load-time-chart class="block h-auto md:lg-[500px] xl:h-[600px]"></tem-load-time-chart>
+  </div>
+</div>

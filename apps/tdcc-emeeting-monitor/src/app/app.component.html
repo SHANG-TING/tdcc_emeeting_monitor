@@ -1,1 +1,175 @@
-<tdcc-emeeting-monitor-nx-welcome></tdcc-emeeting-monitor-nx-welcome>
+<nav
+  id="nav"
+  class="top-0 left-0 right-0 fixed flex bg-white h-14 border-b border-gray-100 z-30 w-screen transition-position lg:transition-none lg:w-auto lg:items-stretch dark:bg-gray-900 dark:border-gray-800 shadow"
+>
+  <div class="flex-1 items-stretch flex h-14">
+    <div
+      class="flex lg:hidden items-center grow-0 shrink-0 relative hover:text-blue-500 cursor-pointer text-black dark:text-white py-2 pl-3 pr-0"
+      (click)="toggleSidenav()"
+    >
+      <span class="inline-flex justify-center items-center w-6 h-6">
+        <svg viewBox="0 0 24 24" width="24" height="24" class="inline-block">
+          <path
+            fill="currentColor"
+            [attr.d]="
+              (sidenavCollapsed$ | async) === true
+                ? 'M19,13H3V11H19L15,7L16.4,5.6L22.8,12L16.4,18.4L15,17L19,13M3,6H13V8H3V6M13,16V18H3V16H13Z'
+                : 'M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z'
+            "
+          ></path>
+        </svg>
+      </span>
+    </div>
+    <div
+      class="flex lg:hidden items-center grow-0 shrink-0 relative hover:text-blue-500 cursor-pointer text-black dark:text-white py-2 pl-3 pr-0"
+    >
+      <span class="inline-flex justify-center items-center w-6 h-6"></span>
+    </div>
+    <div
+      class="cursor-pointer dark:text-white grow-0 hidden hover:text-blue-500 items-center lg:flex pl-3 pr-0 py-2 relative shrink-0 text-black"
+      (click)="toggleSidenav()"
+    >
+      <span class="inline-flex justify-center items-center w-6 h-6">
+        <svg viewBox="0 0 24 24" width="24" height="24" class="inline-block">
+          <path
+            fill="currentColor"
+            [attr.d]="
+              (sidenavCollapsed$ | async) === true
+                ? 'M19,13H3V11H19L15,7L16.4,5.6L22.8,12L16.4,18.4L15,17L19,13M3,6H13V8H3V6M13,16V18H3V16H13Z'
+                : 'M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z'
+            "
+          ></path>
+        </svg>
+      </span>
+    </div>
+    <div
+      class="hidden lg:flex items-center grow-0 shrink-0 relative hover:text-blue-500 cursor-pointer text-black dark:text-white py-2 px-3"
+    >
+      <div class="relative border-gray-700">{{ isDashboard ? 'Dashboard' : '1234 多奇數位' }}</div>
+    </div>
+  </div>
+
+  <div
+    class="absolute w-screen top-14 left-0 bg-white shadow lg:w-auto lg:items-stretch lg:flex lg:grow lg:static lg:border-b-0 lg:overflow-visible lg:shadow-none dark:bg-gray-900 hidden"
+  >
+    <div
+      class="max-h-screen-menu overflow-y-auto lg:overflow-visible lg:flex lg:items-stretch lg:justify-end lg:ml-auto transition-opacity"
+      [ngClass]="{ 'opacity-0': isDashboard }"
+    >
+      <div
+        *ngFor="let serviceName of ['eMeeting', 'eVoting', 'YouTube', 'Facebook']"
+        class="block items-center grow-0 shrink-0 relative hover:text-blue-500 cursor-pointer text-black dark:text-white lg:flex p-0 lg:py-2 lg:px-3 lg:border-r lg:border-gray-100 lg:dark:border-gray-800 dropdown"
+      >
+        <a
+          class="flex items-center py-2 px-3 bg-gray-100 dark:bg-gray-800 lg:bg-transparent lg:dark:bg-transparent"
+        >
+          <div class="w-6 h-6 mr-3 inline-flex bg-emerald-500 rounded-full"></div>
+          <div>
+            <span>{{ serviceName }}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center px-4">
+    <button aria-label="Toggle Dark Mode" type="button" class="h-8 w-8" (click)="toggleTheme()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        class="fill-gray-900 dark:fill-gray-100 transition-transform transform-gpu hover:scale-125 active:rotate-[360deg] active:scale-75 !w-8 !h-8"
+      >
+        <path
+          *ngIf="(theme$ | async) === 'dark'"
+          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+        ></path>
+
+        <path
+          *ngIf="(theme$ | async) !== 'dark'"
+          d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div
+  id="aside"
+  class="flex flex-col w-60 h-screen top-0 fixed transition-position dark:bg-gray-900/70 dark:shadow-r-gray-800 z-50 bg-gray-800 -left-60 lg:left-0"
+  [ngClass]="{ 'lg:w-20': sidenavCollapsed$ | async }"
+>
+  <div
+    class="flex flex-row w-full shrink-0 h-14 items-center bg-gray-900 text-white lg:justify-center"
+  >
+    <div class="flex-1 px-3 flex justify-center">
+      <span class="lg:hidden">Admin</span> <b class="font-black">股東會</b>
+    </div>
+  </div>
+  <div class="flex-1">
+    <p
+      class="p-3 text-xs uppercase text-gray-400 lg:hidden"
+      [ngClass]="{ 'lg:hidden': sidenavCollapsed$ | async }"
+    >
+      功能
+    </p>
+    <ul>
+      <li>
+        <a
+          class="flex cursor-pointer py-2 hover:bg-gray-600 hover:bg-opacity-50"
+          aria-current="page"
+          [routerLink]="['/dashboard']"
+          [routerLinkActive]="'router-link-active bg-gray-600/50'"
+        >
+          <span
+            class="inline-flex justify-center items-center w-12 h-6 flex-none font-bold text-white"
+            [ngClass]="{ 'lg:w-20': sidenavCollapsed$ | async }"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+              <path
+                fill="currentColor"
+                d="M21,14H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10L8,21V22H16V21L14,18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z"
+              ></path>
+            </svg>
+          </span>
+          <span
+            class="grow lg:hidden font-bold text-white"
+            [ngClass]="{ 'lg:hidden': sidenavCollapsed$ | async }"
+            >Dashboard</span
+          >
+        </a>
+      </li>
+    </ul>
+    <p
+      class="p-3 text-xs uppercase text-gray-400"
+      [ngClass]="{ 'lg:hidden': sidenavCollapsed$ | async }"
+    >
+      今日股東會列表
+    </p>
+    <ul>
+      <li>
+        <a
+          class="flex cursor-pointer py-2 hover:bg-gray-600 hover:bg-opacity-50"
+          [ngClass]="{ 'pl-2': (sidenavCollapsed$ | async) === false }"
+          [routerLink]="['meeting', 1234]"
+          [routerLinkActive]="'router-link-active bg-gray-600/50'"
+        >
+          <span
+            class="inline-flex justify-center items-center w-12 h-6 flex-none text-gray-300"
+            [ngClass]="{ 'lg:w-20': sidenavCollapsed$ | async }"
+          >
+            1234
+          </span>
+          <span class="grow text-gray-300" [ngClass]="{ 'lg:hidden': sidenavCollapsed$ | async }">
+            多奇數位
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<section class="py-6 px-3 md:px-6">
+  <router-outlet></router-outlet>
+</section>

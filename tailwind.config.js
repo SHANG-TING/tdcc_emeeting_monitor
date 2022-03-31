@@ -1,147 +1,37 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-const plugin = require('tailwindcss/plugin');
-const colors = require('tailwindcss/colors');
-
 module.exports = {
-  experimental: {
-    optimizeUniversalDefaults: true,
-  },
   content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
-  darkMode: 'class',
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
-      spacing: {
-        '9/16': '56.25%',
-      },
-      lineHeight: {
-        11: '2.75rem',
-        12: '3rem',
-        13: '3.25rem',
-        14: '3.5rem',
-      },
-      fontFamily: {
-        sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
-      },
-      colors: {
-        primary: colors.cyan,
-        secondary: colors.gray,
-      },
-      minHeight: {
-        'screen-75': '75vh',
-      },
-      fontSize: {
-        55: '55rem',
-      },
-      opacity: {
-        80: '.8',
-      },
       zIndex: {
-        2: 2,
-        3: 3,
+        '-1': '-1',
       },
-      inset: {
-        '-100': '-100%',
-        '-225-px': '-225px',
-        '-160-px': '-160px',
-        '-150-px': '-150px',
-        '-94-px': '-94px',
-        '-50-px': '-50px',
-        '-29-px': '-29px',
-        '-20-px': '-20px',
-        '25-px': '25px',
-        '40-px': '40px',
-        '95-px': '95px',
-        '145-px': '145px',
-        '195-px': '195px',
-        '210-px': '210px',
-        '260-px': '260px',
-      },
-      height: {
-        '95-px': '95px',
-        '70-px': '70px',
-        '350-px': '350px',
-        '500-px': '500px',
-        '600-px': '600px',
+      flexGrow: {
+        5: '5',
       },
       maxHeight: {
-        '860-px': '860px',
+        'screen-menu': 'calc(100vh - 3.5rem)',
+        modal: 'calc(100vh - 160px)',
       },
-      maxWidth: {
-        '100-px': '100px',
-        '120-px': '120px',
-        '150-px': '150px',
-        '180-px': '180px',
-        '200-px': '200px',
-        '210-px': '210px',
-        '580-px': '580px',
+      transitionProperty: {
+        position: 'right, left, top, bottom, margin, padding',
+        textColor: 'color',
       },
-      minWidth: {
-        '140-px': '140px',
-        48: '12rem',
+      keyframes: {
+        fadeOut: {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
       },
-      backgroundSize: {
-        full: '100%',
+      animation: {
+        fadeOut: 'fadeOut 250ms ease-in-out',
+        fadeIn: 'fadeIn 250ms ease-in-out',
       },
     },
   },
-  variants: [
-    'responsive',
-    'group-hover',
-    'focus-within',
-    'first',
-    'last',
-    'odd',
-    'even',
-    'hover',
-    'focus',
-    'active',
-    'visited',
-    'disabled',
-  ],
-  plugins: [
-    require('@tailwindcss/forms'),
-    plugin(function ({ addComponents, theme }) {
-      const screens = theme('screens', {});
-      addComponents([
-        {
-          '.container': { width: '100%' },
-        },
-        {
-          [`@media (min-width: ${screens.sm})`]: {
-            '.container': {
-              'max-width': '640px',
-            },
-          },
-        },
-        {
-          [`@media (min-width: ${screens.md})`]: {
-            '.container': {
-              'max-width': '768px',
-            },
-          },
-        },
-        {
-          [`@media (min-width: ${screens.lg})`]: {
-            '.container': {
-              'max-width': '1024px',
-            },
-          },
-        },
-        {
-          [`@media (min-width: ${screens.xl})`]: {
-            '.container': {
-              'max-width': '1280px',
-            },
-          },
-        },
-        {
-          [`@media (min-width: ${screens['2xl']})`]: {
-            '.container': {
-              'max-width': '1280px',
-            },
-          },
-        },
-      ]);
-    }),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio')],
 };

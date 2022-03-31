@@ -3,3 +3,77 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  padding-top: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-left: 15rem;
+  }
+}
+
+#app {
+  width: 100vw;
+  transition-property: right, left, top, bottom, margin, padding;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+@media (min-width: 1024px) {
+  #app {
+    width: auto;
+  }
+
+  #nav {
+    padding-left: 15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .m-clipped,
+  .m-clipped body {
+    overflow: auto;
+  }
+}
+
+.mobile-aside-active #app,
+.mobile-aside-active #nav {
+  margin-left: 15rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-aside-active #app,
+  .mobile-aside-active #nav {
+    margin-left: 0;
+  }
+}
+
+.mobile-aside-right-active #app,
+.mobile-aside-right-active #nav {
+  margin-left: -15rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-aside-right-active #app,
+  .mobile-aside-right-active #nav {
+    margin-left: 0;
+  }
+
+  .aside-compact #nav,
+  .aside-compact body {
+    padding-left: 5rem;
+  }
+
+  .aside-none #nav,
+  .aside-none body {
+    padding-left: 0;
+  }
+}
+
+.form-screen body {
+  padding: 0;
+}
+
+@import './scss/highcharts';
