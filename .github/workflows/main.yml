@@ -42,5 +42,5 @@ jobs:
         run: |
           git config --global user.name "SHANG-TING"
           git config --global user.email "rebom8888@gmail.com"
-          npm run build -- --base-href=/tdcc-emeeting-monitor/
+          npm run build -- --base-href=/tdcc_emeeting_monitor/
           npx ngh --repo=https://${{ secrets.GH_TOKEN }}@github.com/SHANG-TING/tdcc_emeeting_monitor.git
